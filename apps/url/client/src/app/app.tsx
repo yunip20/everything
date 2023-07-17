@@ -1,9 +1,10 @@
 import { useCallback, useState } from 'react';
 import axios from 'axios';
-import { Text, Container, useDisclosure } from '@chakra-ui/react';
+import { Text, Container } from '@chakra-ui/react';
 import ShortenUrlForm from './ShortenUrlsForm';
 import UrlList from './url-list';
 import { Shortened } from './types';
+import QrGenerator from './QrCode';
 
 export function App() {
   const [urls, setUrls] = useState<Array<Shortened>>([]);
@@ -30,7 +31,12 @@ export function App() {
       >
         My URL Shortener
       </Text>
-      <ShortenUrlForm requestShortUrl={requestShortUrl} />
+      <ShortenUrlForm
+        requestShortUrl={requestShortUrl}
+        inputUrl={inputUrl}
+        setInputUrl={setInputUrl}
+      />
+      <QrGenerator inputUrl={inputUrl} />
       <UrlList urls={urls} />
     </Container>
   );
