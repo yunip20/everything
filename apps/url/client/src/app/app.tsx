@@ -1,12 +1,13 @@
 import { useCallback, useState } from 'react';
 import axios from 'axios';
-import { Text, Container, Center, Button } from '@chakra-ui/react';
+import { Text, Container, useDisclosure } from '@chakra-ui/react';
 import ShortenUrlForm from './ShortenUrlsForm';
 import UrlList from './url-list';
 import { Shortened } from './types';
 
 export function App() {
   const [urls, setUrls] = useState<Array<Shortened>>([]);
+  const [inputUrl, setInputUrl] = useState<string>('');
   const requestShortUrl = useCallback(
     async (inputUrl: string) => {
       const response = await axios.post(`http://localhost:3333/api/shorten`, {
