@@ -1,0 +1,6 @@
+3 THINGS TO IMPROVE: 
+1. Error Handling in API call and database update: There are currently no error handling in the requestShortUrl, and shortenUrl function etc. It's essential to handle potential errors that may occur during the API request. 
+    => Wrap the API call with a try-catch block and handle any errors appropriately, such as displaying an error message to the user or logging the error for debugging purposes.
+2. Adding input validation: There is currently no input validation where the user enters the url 
+    => Check if the url is not a chunk of text or other form of message that is not a link 
+3. Documentation: There isn't enough documentation in the code base. Clear documentation helps maintain the codebase and makes it easier for other developers to understand the purpose and behavior of the tests and functions.  
